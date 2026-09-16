@@ -2612,26 +2612,26 @@ input, select, textarea {
 			top: 0.75rem;
 		}
 
-		.image.right {
-			float: right;
-			margin: 0 0 2rem 2rem;
-			top: 0.75rem;
-		}
-
 		.image.fit {
 			display: block;
-			margin: 2.5rem 0;
 			width: 100%;
+			aspect-ratio: 16 / 9;
+			margin: 2rem 0;
+			overflow: hidden;
+			background-color: #f3f5f7;
 		}
-
-			.image.fit:first-child {
-				margin-top: 0;
-			}
-
-			.image.fit img {
-				width: 100%;
-			}
-
+		
+		.image.fit:first-child {
+			margin-top: 0;
+		}
+		
+		.image.fit img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
 		.image.main {
 			display: block;
 			margin: 4rem 0;
@@ -3233,12 +3233,10 @@ input, select, textarea {
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-color: #212931;
-			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/techbg.gif");
-			background-size: auto,								auto,														100% auto;
-			background-position: center,								center,														top center;
-			background-repeat: repeat,								no-repeat,													repeat;
-			background-attachment: scroll,								scroll,														scroll;
+		
+			background-color: #101c2b;
+			background-image: none;
+		
 			z-index: -1;
 		}
 
@@ -3311,6 +3309,44 @@ input, select, textarea {
 		text-align: center;
 		z-index: 1;
 		min-height: 100vh;
+		color: #ffffff;
+		min-height: 72vh;
+		padding: 4rem 2rem 3.5rem;
+	
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	
+		position: relative;
+		cursor: default;
+		text-align: center;
+		z-index: 1;
+	
+		background-color: #101c2b;
+	
+		background-image:
+			linear-gradient(
+				rgba(5, 16, 29, 0.28),
+				rgba(5, 16, 29, 0.48)
+			),
+			url("../../images/citybg.png");
+	
+		background-size:
+			cover,
+			cover;
+	
+		background-position:
+			center,
+			center center;
+	
+		background-repeat:
+			no-repeat,
+			no-repeat;
+	
+		transition:
+			opacity 1s ease,
+			transform 1s ease;
 	}
 
 		#intro input, #intro select, #intro textarea {
@@ -4687,3 +4723,957 @@ input, select, textarea {
 		}
 
 	}
+
+/* =========================================================
+   JON ALDRETE PORTFOLIO OVERRIDES
+   These rules intentionally appear after the complete
+   HTML5 UP Massively stylesheet so the original template,
+   navigation, icons, buttons, grids, and responsive behavior
+   remain available.
+   ========================================================= */
+
+/* Global reading rhythm */
+
+#main p,
+#main li {
+	font-size: 1rem;
+	line-height: 1.7;
+}
+
+#main p {
+	text-align: left;
+}
+
+#main h1,
+#main h2,
+#main h3 {
+	line-height: 1.2;
+}
+
+/* Intro / hero */
+
+#intro {
+	min-height: 82vh;
+	padding: 5rem 2rem 4rem;
+}
+
+#intro .intro-label {
+	margin: 0 0 1rem;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.78rem;
+	font-style: normal;
+	font-weight: 900;
+	letter-spacing: 0.18rem;
+	text-transform: uppercase;
+}
+
+#intro h1 {
+	margin: 0 0 0.5rem;
+	font-size: clamp(3rem, 7vw, 5.25rem);
+	line-height: 1;
+}
+
+#intro .intro-title {
+	margin: 0 0 1.35rem;
+	color: #ffffff;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+	font-style: normal;
+	letter-spacing: 0.04rem;
+	line-height: 1.25;
+	text-transform: none;
+}
+
+#intro > p:not(.intro-label) {
+	max-width: 50rem;
+	margin: 0 auto 2rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.05rem;
+	font-style: normal;
+	line-height: 1.7;
+	text-align: center;
+}
+
+#intro .actions {
+	margin-top: 1.5rem;
+}
+
+/* Navigation */
+
+#nav .links a {
+	font-size: 0.75rem;
+	letter-spacing: 0.08rem;
+}
+
+/* Main container and project introduction */
+
+#main {
+	max-width: 72rem;
+}
+
+#main > .portfolio-heading {
+	padding: 2.75rem 4rem;
+	text-align: center;
+}
+
+.portfolio-heading header.major {
+	margin: 0;
+}
+
+.portfolio-heading header.major > p:first-child {
+	margin: 0 0 0.5rem;
+	color: #376a9c;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 900;
+	letter-spacing: 0.12rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.portfolio-heading header.major h2 {
+	margin: 0 0 0.9rem;
+	font-size: 2rem;
+}
+
+.portfolio-heading header.major p:last-child {
+	max-width: 46rem;
+	margin: 0 auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	font-style: normal;
+	line-height: 1.6;
+	text-align: center;
+}
+
+/* Featured projects */
+
+#main > .post.featured {
+	padding: 3.75rem 5rem;
+}
+
+.post.featured header.major {
+	margin: 0 0 2rem;
+}
+
+.post.featured header.major h2 {
+	max-width: 54rem;
+	margin: 0 auto 1.35rem;
+	font-size: clamp(2.15rem, 4vw, 3.35rem);
+	line-height: 1.12;
+}
+
+.post.featured header.major p {
+	max-width: 50rem;
+	margin: 0 auto 1.15rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.02rem;
+	font-style: normal;
+	line-height: 1.7;
+	text-align: center;
+}
+
+.post.featured .image.main {
+	margin: 2.25rem 0;
+}
+
+/* Project metadata */
+
+.project-status {
+	display: inline-block;
+	margin-bottom: 1.25rem;
+	padding: 0.45rem 0.9rem;
+	border-radius: 999px;
+	background: #e7eef8;
+	color: #244b78;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.7rem;
+	font-style: normal;
+	font-weight: 900;
+	letter-spacing: 0.1rem;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+#main .project-tools {
+	margin-top: 1.1rem;
+	color: #376a9c;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.78rem;
+	font-style: normal;
+	font-weight: 900;
+	letter-spacing: 0.06rem;
+	line-height: 1.5;
+	text-transform: uppercase;
+}
+
+.post.featured .project-tools {
+	text-align: center;
+}
+
+.project-question-box {
+	max-width: 45rem;
+	margin: 1.75rem auto 2rem;
+	padding: 1.6rem 1.9rem;
+	border-left: 4px solid #376a9c;
+	background: #f4f6f8;
+	text-align: left;
+}
+
+.project-question-box h3 {
+	margin: 0 0 0.9rem;
+	font-size: 1.1rem;
+}
+
+.project-question-box ul {
+	margin: 0 0 0 1.25rem;
+}
+
+.project-question-box li {
+	margin-bottom: 0.4rem;
+}
+
+.project-question-box li:last-child {
+	margin-bottom: 0;
+}
+
+.project-note {
+	color: #666666;
+	font-size: 0.85rem !important;
+	font-style: italic !important;
+}
+
+.button.disabled {
+	cursor: default;
+	opacity: 0.55;
+	pointer-events: none;
+}
+
+/* Supporting project grid */
+
+#main > .posts > article {
+	padding: 3rem;
+}
+
+.posts article header {
+	margin-bottom: 1.35rem;
+}
+
+.posts article header h2 {
+	margin: 0;
+	font-size: 1.65rem;
+	line-height: 1.25;
+	text-align: center;
+}
+
+.posts article .image.fit {
+	margin: 0 0 1.6rem;
+}
+
+.posts article .image.fit img {
+	width: 100%;
+	height: auto;
+}
+
+.posts article p {
+	margin: 0 0 1.15rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	font-style: normal;
+	line-height: 1.65;
+	text-align: left;
+}
+
+.posts article .project-tools {
+	min-height: 2.5rem;
+	margin-top: 1.35rem;
+	font-size: 0.74rem;
+	text-align: left;
+}
+
+.posts article .actions {
+	margin-top: 1.6rem;
+}
+
+/* Experience and skills */
+
+#main > .portfolio-section {
+	padding: 3.25rem 4rem;
+}
+
+.portfolio-section header.major {
+	margin: 0 0 2.25rem;
+}
+
+.portfolio-section header.major > p {
+	margin: 0 0 0.45rem;
+	color: #376a9c;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 900;
+	letter-spacing: 0.12rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.portfolio-section header.major h2 {
+	margin: 0;
+	font-size: 2rem;
+}
+
+.experience-card {
+	max-width: 60rem;
+	margin: 0 auto;
+}
+
+.experience-card header {
+	margin-bottom: 1.25rem;
+}
+
+.experience-card header h3 {
+	margin: 0 0 0.3rem;
+	font-size: 1.4rem;
+}
+
+#main .experience-company {
+	margin: 0;
+	color: #666666;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.95rem;
+	font-style: normal;
+	font-weight: 600;
+}
+
+.experience-card p,
+.experience-card li {
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: normal;
+}
+
+.experience-card ul {
+	margin-bottom: 0;
+}
+
+/* Skills */
+
+.skills-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.5rem;
+	max-width: 60rem;
+	margin: 0 auto;
+}
+
+.skill-group {
+	padding: 1.75rem;
+	border: 1px solid #dddddd;
+	background: #ffffff;
+}
+
+.skill-group h3 {
+	margin: 0 0 0.9rem;
+	font-size: 1.15rem;
+}
+
+#main .skill-group p {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.98rem;
+	font-style: normal;
+	line-height: 1.75;
+	text-align: left;
+}
+
+/* Restore and compact the original footer */
+
+#footer .contact section {
+	padding-top: 1.75rem;
+	padding-bottom: 1.75rem;
+}
+
+#footer .contact h3 {
+	font-size: 0.82rem;
+}
+
+#footer .contact p {
+	font-size: 0.95rem;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 980px) {
+	#main > .portfolio-heading,
+	#main > .portfolio-section {
+		padding: 3rem;
+	}
+
+	#main > .post.featured {
+		padding: 3.25rem;
+	}
+
+	#main > .posts > article {
+		padding: 2.5rem;
+	}
+}
+
+/* Mobile */
+
+@media screen and (max-width: 736px) {
+	#intro {
+		min-height: 100vh;
+		padding: 4rem 1.5rem 3rem;
+	}
+
+	#intro h1 {
+		font-size: 3rem;
+	}
+
+	#intro > p:not(.intro-label) {
+		font-size: 1rem;
+	}
+
+	#main > .portfolio-heading,
+	#main > .post.featured,
+	#main > .portfolio-section,
+	#main > .posts > article {
+		padding: 2.35rem 1.4rem;
+	}
+
+	.portfolio-heading header.major h2,
+	.portfolio-section header.major h2,
+	.post.featured header.major h2 {
+		font-size: 1.9rem;
+	}
+
+	.posts article header h2 {
+		font-size: 1.45rem;
+	}
+
+	.project-question-box {
+		padding: 1.4rem;
+	}
+
+	.skills-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.skill-group {
+		padding: 1.5rem;
+	}
+}
+/* Compact featured Retail project */
+
+#main > .retail-feature {
+    padding: 2.75rem 3rem;
+}
+
+.retail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.retail-preview {
+    width: 100%;
+}
+
+.retail-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #d7dce2;
+    box-shadow: 0 0.75rem 2rem rgba(33, 41, 49, 0.12);
+}
+
+.retail-content {
+    text-align: left;
+}
+
+.retail-content .project-status {
+    margin-bottom: 1rem;
+}
+
+.retail-content h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    line-height: 1.1;
+}
+
+#main .retail-content p {
+    margin: 0 0 1.15rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: 1.65;
+    text-align: left;
+}
+
+#main .retail-content .project-tools {
+    margin: 0 0 1.5rem;
+    color: #376a9c;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.055rem;
+    line-height: 1.5;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.retail-content .button {
+    margin-top: 0.25rem;
+}
+
+/* Keep the dashboard readable on tablets and phones */
+
+@media screen and (max-width: 980px) {
+    .retail-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .retail-content {
+        text-align: center;
+    }
+
+    #main .retail-content p,
+    #main .retail-content .project-tools {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    #main > .retail-feature {
+        padding: 2rem 1.25rem;
+    }
+
+    .retail-content h2 {
+        font-size: 1.9rem;
+    }
+}
+
+/* Analytics Projects section introduction */
+
+#main > .portfolio-heading {
+    position: relative;
+    padding: 3.25rem 3rem;
+    border-top: 0;
+    border-bottom: 1px solid #dbe1e7;
+    background:
+        linear-gradient(
+            135deg,
+            #f2f6fa 0%,
+            #ffffff 55%,
+            #eef4f9 100%
+        );
+    text-align: center;
+}
+
+/* .portfolio-heading::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 5rem;
+    height: 4px;
+    background-color: #376a9c;
+    transform: translateX(-50%);
+} */
+
+.portfolio-heading header {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.portfolio-heading .section-label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: #376a9c;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.16rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.portfolio-heading h2 {
+    margin: 0 0 1rem;
+    color: #212931;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.15;
+}
+
+#main .portfolio-heading p {
+    max-width: 45rem;
+    margin: 0 auto;
+    color: #4c5661;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.05rem;
+    font-style: normal;
+    line-height: 1.65;
+    text-align: center;
+}
+
+@media screen and (max-width: 736px) {
+    #main > .portfolio-heading {
+        padding: 2.75rem 1.5rem;
+    }
+
+    .portfolio-heading h2 {
+        font-size: 2rem;
+    }
+
+    #main .portfolio-heading p {
+        font-size: 1rem;
+    }
+}
+/* ------------------------------------------------ */
+/* Education and Certifications                     */
+/* ------------------------------------------------ */
+
+.education-certifications {
+    padding: 4rem;
+    background: #ffffff;
+    border-top: 1px solid #eeeeee;
+}
+
+.education-header {
+    max-width: 850px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.education-header .section-eyebrow {
+    margin: 0 0 0.75rem;
+    color: #2767a8;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.16rem;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.education-header h2 {
+    margin: 0 0 0.75rem;
+    color: #212931;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0.12rem;
+    line-height: 1.25;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.education-header .section-introduction {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.65;
+    text-align: center;
+}
+.education-certification-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.education-column,
+.certification-column {
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid #d9dde2;
+}
+
+.education-column .card-label,
+.certification-column .card-label {
+    margin: 0 0 1.25rem;
+    color: #2767a8;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.education-column h3,
+.certification-column h3 {
+    margin: 0 0 0.4rem;
+    color: #212931;
+    font-size: 1.25rem;
+    line-height: 1.35;
+    letter-spacing: 0.02rem;
+}
+
+.education-entry {
+    padding: 0 0 1.5rem;
+    margin: 0 0 1.5rem;
+    border-bottom: 1px solid #e2e5e8;
+}
+
+.education-entry:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+.credential-title {
+    margin: 0 0 0.25rem;
+    color: #333333;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.credential-date,
+.credential-provider {
+    margin: 0 0 1rem;
+    color: #68747f;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.credential-description {
+    margin: 0;
+    color: #333333;
+    font-size: 0.97rem;
+    line-height: 1.65;
+}
+
+.certification-column h4 {
+    margin: 1.5rem 0 0.75rem;
+    color: #212931;
+    font-size: 0.95rem;
+    letter-spacing: 0.08rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.certificate-details {
+    margin: 0 0 1.25rem;
+    padding-left: 1.25rem;
+}
+
+.certificate-details li {
+    margin: 0 0 0.55rem;
+    padding-left: 0.2rem;
+    color: #333333;
+    font-size: 0.94rem;
+    line-height: 1.55;
+}
+
+.certificate-details li:last-child {
+    margin-bottom: 0;
+}
+
+.certification-tools {
+    margin: 1.4rem 0;
+    color: #2767a8;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.06rem;
+    line-height: 1.65;
+    text-transform: uppercase;
+}
+
+.certification-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.certification-actions li {
+    margin: 0;
+    padding: 0;
+}
+
+.certification-actions .button {
+    min-width: 150px;
+    text-align: center;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 980px) {
+    .education-certifications {
+        padding: 3.5rem 2.5rem;
+    }
+
+    .education-certification-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile */
+
+@media screen and (max-width: 736px) {
+    .education-certifications {
+        padding: 3rem 1.5rem;
+    }
+
+    .education-header {
+        margin-bottom: 2rem;
+    }
+
+    .education-header h2 {
+        font-size: 1.65rem;
+    }
+
+    .education-column,
+    .certification-column {
+        padding: 1.5rem;
+    }
+
+    .education-column h3,
+    .certification-column h3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .education-certifications {
+        padding: 2.5rem 1rem;
+    }
+
+    .education-header h2 {
+        font-size: 1.45rem;
+    }
+
+    .certification-actions {
+        display: block;
+    }
+
+    .certification-actions li {
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+
+    .certification-actions .button {
+        width: 100%;
+    }
+}
+
+.certification-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.certification-actions li {
+    margin: 0;
+    padding: 0;
+}
+
+.certification-actions .button {
+    min-width: 150px;
+    text-align: center;
+}
+.education-column,
+.certification-column,
+.education-column p,
+.certification-column p,
+.certificate-details li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
+
+.education-column h3,
+.certification-column h3,
+.certification-column h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
+/* ------------------------------------------------ */
+/* Projects introduction                            */
+/* ------------------------------------------------ */
+
+.projects-introduction {
+    padding: 2.5rem 4rem 2rem;
+    /* border-bottom: 1px solid #e1e4e8; */
+    text-align: left;
+	/* background: #e0f2fe; /* Fallback for older browsers */
+    /* background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); */
+}
+
+.projects-introduction h2 {
+    margin: 0 0 0.5rem;
+    color: #212931;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.projects-introduction p {
+    max-width: 760px;
+    margin: 0;
+    color: #3d4650;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.6;
+}
+
+/* Reduce the space before the featured project */
+
+.projects-introduction + .post.featured {
+    border-top: 0;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 980px) {
+    .projects-introduction {
+        padding: 2.5rem 1.5rem 2rem;
+    }
+
+    .projects-introduction h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Mobile */
+
+@media screen and (max-width: 736px) {
+    .projects-introduction {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+
+    .projects-introduction h2 {
+        font-size: 1.65rem;
+    }
+
+    .projects-introduction p {
+        font-size: 0.95rem;
+    }
+}
